@@ -15,3 +15,4 @@ class ArizaHomiyViewSet(ModelViewSet):
     serializer_class = ArizaHomiySerializer
     queryset = ArizaHomiy.objects.all()
     parser_classes = [MultiPartParser]
+

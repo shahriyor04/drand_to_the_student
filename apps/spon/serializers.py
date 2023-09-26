@@ -12,13 +12,7 @@ class CategorySerializer(ModelSerializer):
 
 class ArizaHomiySerializer(ModelSerializer):
     # payment_type = ChoiceField(choices=['cash', 'card'])
-    organization = CharField(max_length=255)
+    # organization = CharField(max_length=255)
     class Meta:
         model = ArizaHomiy
         fields = ('category1', 'users', 'phone', 'summa', 'comment', 'payment_type', 'person', 'organization')
-
-    def to_representation(self, instance):
-        data = super().to_representation(instance)
-        if instance.person == 'True':
-            data['organization'] = instance.organization
-        return data
