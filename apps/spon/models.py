@@ -42,6 +42,7 @@ class ArizaHomiy(Model):
     )
     organization = CharField(max_length=255, blank=True)
     comment = TextField()
+    created_at = DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         if not self.person:

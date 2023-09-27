@@ -138,6 +138,12 @@ REST_FRAMEWORK = {
 
 }
 
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'localhost:8000',
+    },
+}
+
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=5),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=30),
