@@ -7,6 +7,6 @@ router.register('category', CategoryViewSet , basename='sponsor')
 router.register('ariza', ArizaHomiyViewSet , basename='ariza')
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('administrator/', include(router.urls)),
 
 ]

@@ -33,11 +33,12 @@ class ArizaHomiy(Model):
 
     category1 = ForeignKey(Category, on_delete=CASCADE)
     users = CharField('I, F, SH', max_length=250)
-    phone = IntegerField(validators=[phone_regex], max_length = 9)
+    phone = IntegerField(validators=[phone_regex])
     summa = DecimalField(max_digits=10, decimal_places=2, validators=[summa_regex])
     payment_type = CharField(max_length=20, choices=CHOICES)
     person = BooleanField(
-        default=False, blank=True
+        default=False
+
     )
     organization = CharField(max_length=255, blank=True)
     comment = TextField()
