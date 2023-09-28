@@ -3,6 +3,7 @@ from django.core.validators import RegexValidator, MinValueValidator
 from django.db.models import Model, CharField, ForeignKey, IntegerField, TextField, DateTimeField, CASCADE, \
     DecimalField, BooleanField
 from django.forms import ChoiceField
+from rest_framework.exceptions import ValidationError
 
 categories = [
     ('homiy', 'Homiy '),
@@ -16,6 +17,10 @@ class Category(Model):
     def __str__(self):
         return self.name
 
+def summa_regex(value):
+    if value < 500000:
+        raise RegexValidator("The amount must not be less than 500,000.")
+
 
 class ArizaHomiy(Model):
     CHOICES = (
@@ -26,10 +31,10 @@ class ArizaHomiy(Model):
         regex=r'^\d{9}$',
         message="Phone number must be exactly 9 digits long.",
     )
-    summa_regex = RegexValidator(
-        regex='500000',
-        message="minimum 500 000 digits"
-    )
+    # summa_regex = RegexValidator(
+    #     regex='500000',
+    #     message="minimum 500 000 digits"
+    # )
 
     category1 = ForeignKey(Category, on_delete=CASCADE)
     users = CharField('I, F, SH', max_length=250)
