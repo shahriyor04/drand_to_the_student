@@ -8,6 +8,7 @@ from django.db.models import Sum
 
 from administrator.models import Application, Student, Student_ad_sponsor
 from administrator.permission import IssuePermission
+# from administrator.search_indexes import #StudentIndex, student_index
 from administrator.serializers import ApplicationSerializer, StudentSerializer, Student_sponsorSerializer
 from elasticsearch_dsl import Search
 from rest_framework.filters import SearchFilter
@@ -25,13 +26,22 @@ class ApplicationListView(ModelViewSet):
     permission_classes = (IssuePermission,)
 
     filter_backends = (SearchFilter,)
-    search_fields = ('title', 'text', 'to_author__username')
+    search_fields = ('username',)
+
 
 class StudentViewSet(ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
     permission_classes = (IssuePermission,)
     parser_classes = [MultiPartParser]
+
+    filter_backends = (SearchFilter,)
+    search_fields = ('username',)
+
+    # indexing_class = StudentIndex
+    #
+    # filter_backends = [student_index]
+
 
 
 class Student_sponsorSet(ModelViewSet):
@@ -40,6 +50,9 @@ class Student_sponsorSet(ModelViewSet):
     permission_classes = (IssuePermission,)
     parser_classes = [MultiPartParser]
     http_method_names = ('get','post', 'patch')
+
+    filter_backends = (SearchFilter,)
+    search_fields = ('username',)
 
 
 @api_view(['GET'])

@@ -20,13 +20,17 @@ def is_valid_username(username):
         raise ValidationError("Username should have at least 3 parts.")
 
 
-class Student(Model):
-    phone_regex = RegexValidator(
+def phone_number(number):
+    number = RegexValidator(
         regex=r'^\d{9}$',
         message="Phone number must be exactly 9 digits long.",
     )
+    raise ValidationError("Phone number must be exactly 9 digits")
+
+
+class Student(Model):
     username = CharField(max_length=250, validators=[is_valid_username])
-    phone = IntegerField(validators=[phone_regex])
+    phone = IntegerField(validators=[phone_number])
     OTM = CharField(max_length=255)
     type_student = CharField(max_length=255)
     contract = IntegerField()
