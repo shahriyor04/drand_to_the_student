@@ -133,4 +133,59 @@ def student_key_sponsor(request):
 
     return Response({'cponser_homiy': response_data})
 
+#
+#
+# 1 EKUB: 420
+# EKUK:
 
+# 2  EKUB: 660
+# EKUK: 23100
+
+# 3  EKUB: 42
+# EKUK: 210
+
+# 4 EKUB: 30
+# EKUK: 150
+
+# 5  EKUB: 10
+# EKUK: 460
+
+# 6  EKUB: 100
+# EKUK: 1539000
+
+# 7  EKUB: 170
+# EKUK: 260100
+
+# 8   EKUB: 5
+# EKUK: 19600
+
+from math import gcd
+
+# Numbers
+# number1 =2³ * 5² * 19 2²*5³*9²
+# number2 =  2 * 5 * 23
+#
+# # Greatest Common Divisor (EKUB)
+# ekub = gcd(number1, number2)
+#
+# # Least Common Multiple (EKUK)
+# ekuk = (number1 * number2) // ekub
+#
+# print(f"EKUB: {ekub}")
+# print(f"EKUK: {ekuk}")
+
+
+from math import gcd
+
+# Numbers
+# number1 = 2 ** 4 * 5
+# number2 =  5 ** 2 * 7 ** 2
+#
+# # Greatest Common Divisor (EKUB)
+# ekub = gcd(number1, number2)
+#
+# # Least Common Multiple (EKUK)
+# ekuk = (number1 * number2) // ekub
+#
+# print(f"EKUB: {ekub}")
+# print(f"EKUK: {ekuk}")
